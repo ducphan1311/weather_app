@@ -1,33 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:get_it/get_it.dart';
-import 'package:test_261224/presentation/blocs/auth/auth_bloc.dart';
-import 'package:test_261224/presentation/blocs/auth_navigation/auth_navigation_bloc.dart';
 
-import 'application/application.dart';
-import 'application/services/local_service.dart';
+import 'application/services/weather_service.dart';
 import 'initialize_dependencies.dart';
+import 'presentation/cubits/weather/weather_cubit.dart';
+import 'presentation/pages/weather/weather_page.dart';
+import 'themes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  await dotenv.load(fileName: ".env");
-
+  
+  // Load environment variables
+  await dotenv.load(fileName: '.env');
+  
+  // Initialize dependencies
   await initializeDependencies();
+  
+  runApp(const MyApp());
+}
 
-  if (GetIt.instance.get<LocalService>().isAuthorized()) {
-    await GetIt.instance.get<AuthBloc>().initializeApp();
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Weather App',
+      theme: appTheme(context),
+      home: BlocProvider(
+        create: (_) => WeatherCubit(getIt<WeatherService>()),
+        child: const WeatherPage(),
+      ),
+    );
   }
-  runApp(MultiBlocProvider(
-    providers: [
-      BlocProvider.value(
-        value: GetIt.instance.get<AuthBloc>(),
-      ),
-      BlocProvider.value(
-        value: GetIt.instance.get<AuthNavigationBloc>(),
-      ),
-    ],
-    child: const Application(),
-  ));
 }

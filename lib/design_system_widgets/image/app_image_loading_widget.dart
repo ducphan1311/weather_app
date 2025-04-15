@@ -7,8 +7,7 @@ class AppImageLoadingWidget extends StatelessWidget {
   final double? width;
   final double? height;
 
-  const AppImageLoadingWidget({Key? key, this.width, this.height})
-      : super(key: key);
+  const AppImageLoadingWidget({super.key, this.width, this.height});
 
   @override
   Widget build(BuildContext context) {

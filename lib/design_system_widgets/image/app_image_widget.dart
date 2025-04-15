@@ -9,8 +9,7 @@ const kSizeImageCache = 1080;
 
 class AppImageWidget extends StatelessWidget {
   const AppImageWidget(
-      {Key? key, required this.url, this.width = 54, this.height = 54})
-      : super(key: key);
+      {super.key, required this.url, this.width = 54, this.height = 54});
   final String url;
   final double width;
   final double height;

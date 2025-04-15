@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import '../../gen/assets.gen.dart';
 
 class AppImageErrorWidget extends StatelessWidget {
-  const AppImageErrorWidget({Key? key, this.width = 54, this.height = 54})
-      : super(key: key);
+  const AppImageErrorWidget({super.key, this.width = 54, this.height = 54});
 
   final double width;
   final double height;
