@@ -33,9 +33,8 @@ This project follows Clean Architecture principles with the following layers:
 
 ```bash
 git clone https://github.com/yourusername/weather_app.git
-cd /Users/ducphan/Desktop/Documents/Flutter_project/weather_app
 ```
-2. Install dependencies:
+2. In project Install dependencies:
 ```bash
 flutter pub get
 ```
