@@ -45,9 +45,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Ứng dụng cần quyền truy cập vị trí của bạn để hiển thị thông tin thời tiết chính xác tại vị trí hiện tại.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-    <string>Needed to access location always when the app is open.</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Needed to access location when the app is open and run in background.</string>
+	<string>Ứng dụng cần quyền truy cập vị trí của bạn để cập nhật thông tin thời tiết ngay cả khi ứng dụng đang chạy nền.</string>
+	<key>MinimumOSVersion</key>
+	<string>12.0</string>
 </dict>
 </plist>

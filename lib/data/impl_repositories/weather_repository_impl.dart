@@ -33,13 +33,11 @@ class WeatherRepositoryImpl implements WeatherRepository {
 
     // Test if location services are enabled.
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    print('serviceEnabled: $serviceEnabled');
     if (!serviceEnabled) {
       throw Exception('Location services are disabled.');
     }
 
     permission = await Geolocator.checkPermission();
-    print('permission: $permission');
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
